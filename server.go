@@ -6,22 +6,10 @@ import (
 	"net/http"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/hello" {
-		http.Error(w, "Ooops,404 not found.", http.StatusNotFound)
-		return
-	}
-
-	if r.Method != "GET" {
-		http.Error(w, "Method is not supported.", http.StatusNotFound)
-		return
-	}
-
-	fmt.Fprintf(w, "Hello,World!!!")
-}
-
 func main() {
-	http.HandleFunc("/hello", helloHandler)
+	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request){
+        fmt.Fprintf(w, "Hello,World!!!")
+    })
 
 
 	fmt.Printf("Hello all! This is my first go web server!!!\n")
