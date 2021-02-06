@@ -23,7 +23,7 @@ git clone <repo_ssh_link>
 
 ```
 > cd <work_space/repo>
-> run go server.go
+> go run server.go
 ```
 
 5. You should see the following output in the web browser.
